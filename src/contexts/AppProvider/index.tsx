@@ -1,5 +1,5 @@
 import { useMemo } from 'react';
-import AppProviderType from '../../@types/AppProviderType';
+import { AppProviderType } from '../../@types/AppTypes';
 import AppContext from './AppContext';
 
 export default function AppProvider({ children }: AppProviderType) {
