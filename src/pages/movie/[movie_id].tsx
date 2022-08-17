@@ -13,7 +13,7 @@ export default function MoviePage() {
 	const params = useRouter();
 
 	const getMovie = async () => {
-		const movieInfo = await getMovieInfo(params.query.movie_id);
+		const movieInfo = await getMovieInfo(`${params.query.movie_id}`);
 		setMovie(movieInfo);
 	};
 
