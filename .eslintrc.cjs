@@ -71,5 +71,6 @@ module.exports = {
 		'jsx-a11y/anchor-is-valid': 'off',
 		'react/function-component-definition': 'off',
 		'implicit-arrow-linebreak': 'off',
+		'no-confusing-arrow': 'off',
 	},
 };
