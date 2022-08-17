@@ -21,8 +21,6 @@ export default function MoviePage() {
 		getMovie();
 	}, []);
 
-	console.log(movie);
-
 	return (
 		<Styled.MoviePageContainer>
 			{

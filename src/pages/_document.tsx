@@ -23,7 +23,7 @@ export default class MyDocument extends Document {
 		}
 	}
 
-	render(): JSX.Element {
+	render() {
 		return (
 			<Html>
 				<Head>
