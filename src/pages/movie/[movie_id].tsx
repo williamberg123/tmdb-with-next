@@ -8,7 +8,7 @@ export default function MoviePage() {
 	const [movie, setMovie] = useState<MovieType | null>(null);
 
 	const params = useRouter();
-	const moviePageRef = useRef(null);
+	const moviePageRef = useRef<HTMLElement | null>(null);
 
 	const getMovie = useCallback(async () => {
 		const movieInfo = await getMovieInfo(`${params.query.movie_id}`);
