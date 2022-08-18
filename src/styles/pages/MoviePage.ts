@@ -1,18 +1,30 @@
 import styled from 'styled-components';
 
 export const MoviePageContainer = styled.div`
-	width: 100%;
+position: relative;
+	max-width: 1500px;
 	min-height: 100vh;
-	background-color: black;
+	background-size: cover;
+	margin: auto;
 `;
 
 export const MovieInfo = styled.div`
+	max-width: 1500px;
+	min-height: 100vh;
 	position: absolute;
 	display: flex;
 	flex-direction: column;
 	color: white;
 	z-index: 5;
 	padding: 20px;
+	background: black no-repeat center top;
+	background-size: cover;
+
+	& h1,
+	& span,
+	& p {
+		z-index: 2;
+	}
 
 	& h1 {
 		font-family: 'Rubik Distressed', cursive;
@@ -54,15 +66,12 @@ export const MovieInfo = styled.div`
 	}
 `;
 
-export const BackgroudImage = styled.img`
-	width: 100%;
-	position: fixed;
-`;
-
 export const ShadowDiv = styled.div`
 	width: 100%;
 	height: 100vh;
-	position: fixed;
+	position: absolute;
+	top: 0;
+	left: 0;
 	background-color: rgba(0, 0, 0, 0.6);
 `;
 
