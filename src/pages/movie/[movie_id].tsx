@@ -1,5 +1,5 @@
 import { useRouter } from 'next/router';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { MovieType } from '../../@types/movieType';
 import { getMovieInfo } from '../../services/api';
 import * as Styled from '../../styles/pages/MoviePage';
@@ -8,7 +8,6 @@ export default function MoviePage() {
 	const [movie, setMovie] = useState<MovieType | null>(null);
 
 	const params = useRouter();
-	const moviePageRef = useRef<HTMLElement | null>(null);
 
 	const getMovie = useCallback(async () => {
 		const movieInfo = await getMovieInfo(`${params.query.movie_id}`);
@@ -19,17 +18,13 @@ export default function MoviePage() {
 		getMovie();
 	}, [getMovie]);
 
-	useEffect(() => {
-		if (!movie) return;
-		const url = `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`;
-		moviePageRef.current.style.backgroundImage = url;
-	}, [movie]);
+	const imageUrl = `url(https://image.tmdb.org/t/p/original${movie?.backdrop_path})`;
 
 	return (
 		<Styled.MoviePageContainer>
 			{
 				!!movie && (
-					<Styled.MovieInfo ref={moviePageRef}>
+					<Styled.MovieInfo style={{ backgroundImage: imageUrl }}>
 						<h1>{movie.title}</h1>
 						<span className="tagline">
 							{movie.tagline}
