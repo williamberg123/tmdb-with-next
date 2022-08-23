@@ -11,6 +11,7 @@ export interface AppContextType {
 	movies: MovieType[];
 	filteredMovies: MovieType[];
 	search: string;
+	// eslint-disable-next-line
 	searchMovie: (value: string) => void;
 	loadMoreMovies: () => void;
 	isLoadingMoreMovies: boolean;
