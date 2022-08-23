@@ -2,7 +2,6 @@ import { useRouter } from 'next/router';
 import { useCallback, useEffect, useState } from 'react';
 import { InfinitySpin } from 'react-loader-spinner';
 import { MovieType } from '../../@types/movieType';
-import RenderIf from '../../components/RenderIf';
 import { getMovieInfo } from '../../services/api';
 import * as Styled from '../../styles/pages/MoviePage';
 
@@ -24,29 +23,31 @@ export default function MoviePage() {
 
 	return (
 		<Styled.MoviePageContainer>
-			<RenderIf isTrue={!movie}>
-				<InfinitySpin color="red" />
-			</RenderIf>
+			{
+				!movie && <InfinitySpin color="red" />
+			}
 
-			<RenderIf isTrue={!!movie}>
-				<Styled.MovieInfo style={{ backgroundImage: imageUrl }}>
-					<h1>{movie?.title}</h1>
-					<span className="tagline">
-						{movie?.tagline}
+			{
+				!!movie && (
+					<Styled.MovieInfo style={{ backgroundImage: imageUrl }}>
+						<h1>{movie?.title}</h1>
+						<span className="tagline">
+							{movie?.tagline}
 
-						<span className="age-and-genres">
-							<Styled.AgeClassification isAdult={movie?.adult}>
-								{movie?.adult ? '18' : 'L'}
-							</Styled.AgeClassification>
-							{
-								movie?.genres.map(({ name }) => <span key={name}>{name}</span>)
-							}
+							<span className="age-and-genres">
+								<Styled.AgeClassification isAdult={movie?.adult}>
+									{movie?.adult ? '18' : 'L'}
+								</Styled.AgeClassification>
+								{
+									movie?.genres.map(({ name }) => <span key={name}>{name}</span>)
+								}
+							</span>
 						</span>
-					</span>
-					<p>{movie?.overview}</p>
-					<Styled.ShadowDiv />
-				</Styled.MovieInfo>
-			</RenderIf>
+						<p>{movie?.overview}</p>
+						<Styled.ShadowDiv />
+					</Styled.MovieInfo>
+				)
+			}
 		</Styled.MoviePageContainer>
 	);
 }

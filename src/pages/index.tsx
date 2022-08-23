@@ -5,7 +5,6 @@ import { InfinitySpin } from 'react-loader-spinner';
 import { AppContextType } from '../@types/appTypes';
 import Header from '../components/Header';
 import Movie from '../components/Movie';
-import RenderIf from '../components/RenderIf';
 import AppContext from '../contexts/AppProvider/AppContext';
 import * as Styled from '../styles/pages/Home';
 
@@ -29,25 +28,27 @@ export default function Home() {
 			<Header />
 
 			<Styled.MoviesContainer hasMovies={hasMovies} search={!!search} isLoading={isLoading}>
-				<RenderIf isTrue={isLoading}>
-					<InfinitySpin color="red" />
-				</RenderIf>
+				{
+					isLoading && (<InfinitySpin color="red" />)
+				}
 
-				<RenderIf isTrue={hasMovies}>
-					{
-						filteredMovies.map((movie) => <Movie key={movie.id} {...movie} />)
-					}
-				</RenderIf>
+				{
+					hasMovies && filteredMovies.map((movie) => <Movie key={movie.id} {...movie} />)
+				}
 
-				<RenderIf isTrue={!hasMovies && !!search}>
-					<MdMovie />
-					<p>Sem resultados para &#34;{search}&#34;</p>
-				</RenderIf>
+				{
+					(!hasMovies && !!search) && (
+						<>
+							<MdMovie />
+							<p>Sem resultados para &#34;{search}&#34;</p>
+						</>
+					)
+				}
 			</Styled.MoviesContainer>
 
-			<RenderIf isTrue={isLoadingMoreMovies}>
-				<InfinitySpin color="red" />
-			</RenderIf>
+			{
+				isLoadingMoreMovies && <InfinitySpin color="red" />
+			}
 		</Styled.HomeContainer>
 	);
 }
