@@ -13,4 +13,5 @@ export interface AppContextType {
 	search: string;
 	searchMovie: (value: string) => void;
 	loadMoreMovies: () => void;
+	isLoadingMoreMovies: boolean;
 }

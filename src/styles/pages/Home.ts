@@ -6,7 +6,12 @@ interface MoviesContainerType {
 	hasMovies: boolean;
 }
 
-export const HomeContainer = styled.div``;
+export const HomeContainer = styled.div`
+	& > svg {
+		display: flex;
+		margin: 20px auto;
+	}
+`;
 
 export const MoviesContainer = styled.div<MoviesContainerType>`
 	max-width: 1200px;
@@ -32,6 +37,7 @@ export const MoviesContainer = styled.div<MoviesContainerType>`
 				font-size: 1.5rem;
 				font-variant: small-caps;
 				text-transform: lowercase;
+				text-align: center;
 
 				& svg {
 					width: 100px;
@@ -61,7 +67,11 @@ export const LoadMoreButton = styled.button`
 	border-radius: 5px;
 	border: none;
 	cursor: pointer;
-	background-image: linear-gradient(to right, red, orange);
+	background-image: linear-gradient(to right, red, orangered);
 	font-weight: bold;
 	color: white;
+
+	&:hover {
+		background-image: linear-gradient(to right, orangered, red);
+	}
 `;

@@ -3,8 +3,13 @@ import styled from 'styled-components';
 export const MoviePageContainer = styled.div`
 	max-width: 1500px;
 	min-height: 100vh;
-	background-size: cover;
 	margin: auto;
+	background-color: black;
+
+	& > svg {
+		display: flex;
+		margin: auto;
+	}
 `;
 
 export const MovieInfo = styled.div`

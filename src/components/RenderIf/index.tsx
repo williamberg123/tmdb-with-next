@@ -1,10 +1,10 @@
 import { ReactNode } from 'react';
 
 interface RenderIfProps {
-	children: ReactNode | null | undefined;
+	children: ReactNode;
 	isTrue: boolean;
 }
 
-export default function RenderIf({ children, isTrue }: RenderIfProps) {
+export default function RenderIf({ children, isTrue }: RenderIfProps): ReactNode {
 	return isTrue ? children : null;
 }
