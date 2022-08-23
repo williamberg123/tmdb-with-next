@@ -72,5 +72,7 @@ module.exports = {
 		'react/function-component-definition': 'off',
 		'implicit-arrow-linebreak': 'off',
 		'no-confusing-arrow': 'off',
+		'no-restricted-globals': 'off',
+		'no-nested-ternary': 'off',
 	},
 };

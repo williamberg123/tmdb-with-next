@@ -1,11 +1,11 @@
 import Link from 'next/link';
-import { useContext } from 'react';
+import { memo, useContext } from 'react';
 import { AppContextType } from '../../@types/appTypes';
 import { MovieType } from '../../@types/movieType';
 import AppContext from '../../contexts/AppProvider/AppContext';
 import * as Styled from './styles';
 
-export default function Movie({ poster_path, id }: MovieType) {
+function Movie({ poster_path, id, title }: MovieType) {
 	const { imageUrlw500 } = useContext(AppContext) as AppContextType;
 
 	return (
@@ -13,6 +13,9 @@ export default function Movie({ poster_path, id }: MovieType) {
 			<Link href={`/movie/${encodeURIComponent(id)}`}>
 				<Styled.MoviePoster src={`${imageUrlw500}${poster_path}`} />
 			</Link>
+			<span>{title}</span>
 		</Styled.Container>
 	);
 }
+
+export default memo(Movie);
