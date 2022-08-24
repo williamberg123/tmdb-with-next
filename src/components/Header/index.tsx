@@ -9,7 +9,12 @@ export default function Header() {
 	return (
 		<Styled.Container>
 			<span>TMDB Api</span>
-			<Styled.SearchBox value={search} onChange={(e) => searchMovie(e.target.value.toLowerCase())} type="search" placeholder="pesquise um filme" />
+			<Styled.SearchBox
+				value={search}
+				onChange={(e) => searchMovie(e.target.value.toLowerCase())}
+				type="search"
+				placeholder="pesquise um filme"
+			/>
 		</Styled.Container>
 	);
 }
