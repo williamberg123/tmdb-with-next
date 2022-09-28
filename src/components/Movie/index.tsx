@@ -10,7 +10,7 @@ function Movie({ poster_path, id, title }: MovieType) {
 
 	return (
 		<Styled.Container>
-			<Link href={`/movie/${encodeURIComponent(id)}`}>
+			<Link href={`/movies/${encodeURIComponent(id)}`}>
 				<Styled.MoviePoster src={`${imageUrlw500}${poster_path}`} />
 			</Link>
 			<span>{title}</span>

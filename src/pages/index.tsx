@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react';
+import { useContext, useEffect } from 'react';
 
 import { MdMovie } from 'react-icons/md';
 import { InfinitySpin } from 'react-loader-spinner';
