@@ -12,7 +12,7 @@ export default function Home() {
 	const { filteredMovies, search, isLoadingMoreMovies, loadMoreMovies } = useContext(AppContext) as AppContextType;
 	const hasMovies = Boolean(filteredMovies.length);
 
-	// for is loading, dont must have movies and dont must have a searched value
+	// for to be loading, dont must have movies and dont must have a searched value
 	const isLoading = !hasMovies && !search;
 
 	useEffect(() => {

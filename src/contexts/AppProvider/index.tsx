@@ -45,8 +45,8 @@ export default function AppProvider({ children }: AppProviderType) {
 	: movies;
 
 	const context = useMemo<AppContextType>(() => ({
-		imageUrlOriginal, imageUrlw500, movies, search, searchMovie, filteredMovies, loadMoreMovies, isLoadingMoreMovies,
-	}), [movies, search, searchMovie, filteredMovies, loadMoreMovies, isLoadingMoreMovies]);
+		imageUrlOriginal, imageUrlw500, search, searchMovie, filteredMovies, loadMoreMovies, isLoadingMoreMovies,
+	}), [search, searchMovie, filteredMovies, loadMoreMovies, isLoadingMoreMovies]);
 
 	return (
 		<AppContext.Provider value={context}>
